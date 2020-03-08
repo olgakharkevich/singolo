@@ -1,22 +1,22 @@
 @font-face {
     font-family: Lato-Semibold;
-    src: url(/assets/fonts/Lato-Semibold.ttf);
+    src: url(assets/fonts/Lato-Semibold.ttf);
 }
 @font-face {
     font-family: Lato-Regular;
-    src: url(/assets/fonts/Lato-Regular.ttf);
+    src: url(assets/fonts/Lato-Regular.ttf);
 }
 @font-face {
     font-family: Lato-Black;
-    src: url(/assets/fonts/Lato-Black.ttf);
+    src: url(assets/fonts/Lato-Black.ttf);
 }
 @font-face {
     font-family: Lato-Medium;
-    src: url(/assets/fonts/Lato-Medium.ttf);
+    src: url(assets/fonts/Lato-Medium.ttf);
 }
 @font-face {
     font-family: Lato-Light;
-    src: url(/assets/fonts/Lato-Light.ttf);
+    src: url(assets/fonts/Lato-Light.ttf);
 }
 
 
@@ -440,13 +440,13 @@ li:first-child {
 }
 
 .contact-info li:first-child {
-    list-style-image: url(/assets/image/location.png)
+    list-style-image: url(assets/image/location.png)
 }
 .contact-info li:nth-child(2) {
-    list-style-image: url(/assets/image/phone-cont.png)
+    list-style-image: url(assets/image/phone-cont.png)
 }
 .contact-info li:last-child {
-    list-style-image: url(/assets/image/mail.png)
+    list-style-image: url(assets/image/mail.png)
 }
 
 .contact-info li {
