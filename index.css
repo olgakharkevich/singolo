@@ -31,7 +31,7 @@
 }
 
 /* part1 */
-/*  
+
 .header .wrapper {
     height: 89px;
     background-color: #2d303a;
@@ -64,7 +64,8 @@
     padding-right: 28px;  
 }
 
-li:first-child {                     !!!!ИПРАВИТЬ С AFTER
+/* !!!!ИПРАВИТЬ С AFTER */
+li:first-child {                     
     list-style-type: none;
 }
 
@@ -79,7 +80,8 @@ li:first-child {                     !!!!ИПРАВИТЬ С AFTER
     color: #f06c64;
 }
 
-.header__bottom {               !!!ИСПРАВИТЬ
+/* !!!ИСПРАВИТЬ */
+.header__bottom {               
     background-color: #323746;
     height: 6px; 
     width: 1020px;
@@ -107,7 +109,8 @@ li:first-child {                     !!!!ИПРАВИТЬ С AFTER
     flex-grow: 0.55;
 }
 
-.services__bottom {               !!!ИСПРАВИТЬ
+ /* !!!ИСПРАВИТЬ */
+.services__bottom {              
     background-color: #ea676b;
     width: 1020px;
     height: 10px;
@@ -179,10 +182,9 @@ li:first-child {                     !!!!ИПРАВИТЬ С AFTER
     margin-left: -20px;
     margin-right: -20px;
 }
-*/
 
 /* part2 */
-/*
+
 .portfolio .wrapper {
     height: 870px;
     background-color: #2d303a;
@@ -303,7 +305,7 @@ li:first-child {                     !!!!ИПРАВИТЬ С AFTER
     line-height: 20px;
     color: #767e9e;
 }
- */
+
 .icons-sn {
     display: flex;
     flex-direction: row;
