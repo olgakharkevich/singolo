@@ -342,7 +342,7 @@ html {
 .icons-sn {
     display: flex;
     flex-direction: row;
-    padding-top: 24px;
+    padding-top: 22px;
 }
 
 .icons-sn>a>div {
@@ -476,7 +476,7 @@ html {
     letter-spacing: 0.3px;
     color: #f0d8d9;
     line-height: 22px;
-    margin-top: 24px;
+    margin-top: 20px;
     margin-left: 20px;
 }
 
