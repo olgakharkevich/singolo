@@ -156,6 +156,8 @@ html {
     letter-spacing: -1.05px;
     line-height: 31px;
     color: #767e9e;
+
+
 }
 
 .main-text {
@@ -188,6 +190,8 @@ html {
     text-align: justify;
     line-height: 21px;
     color: #767e9e;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .cards>.column-3>div {
