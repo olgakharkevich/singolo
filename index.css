@@ -156,8 +156,6 @@ html {
     letter-spacing: -1.05px;
     line-height: 31px;
     color: #767e9e;
-
-
 }
 
 .main-text {
@@ -184,7 +182,8 @@ html {
     padding-left: 21px;
     padding-top: 9px;
     width: 219px;
-    height: 128px;
+    height: 80px;
+    margin-bottom: 48px;
     font-size: 11px;
     letter-spacing: 0.4px;
     text-align: justify;
