@@ -19,6 +19,10 @@
     src: url(assets/fonts/Lato-Light.ttf);
 }
 
+html {
+    font-family: Lato-Regular, Verdana, sans-serif;
+    font-size: 10px;
+}
 
 * {
     padding: 0px;
@@ -40,7 +44,6 @@
 .logo {
     font-family: Lato-Semibold, Verdana, sans-serif;
     font-size: 12px; 
-    font-weight: 500;
     color: white;
     position: absolute;
     margin-left: 40px;
@@ -50,28 +53,36 @@
     color: #f06c64;
 }
 
+.header__navigation ul {
+    list-style: none;
+}
+
 .navigation {              
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    padding-top: 38px;
-    padding-right: 15px;
+    padding-top: 43px;
+    padding-right: 40px;
 }
 
 .navigation li {
     color: #494e62;
-    padding-left: 5px;
-    padding-right: 28px;  
+    padding-left: 28px;
 }
 
-/* !!!!ИПРАВИТЬ С AFTER */
-li:first-child {                     
-    list-style-type: none;
+.navigation li:not(:last-child)::after {
+    content: "•";
+    font-size: 5px;
+    color: #474c5f;
+    position: relative;
+    bottom: 2px;
+    left: 14px;
 }
 
 .navigation a {
-    font-family: Lato-Medium, Verdana, sans-serif;
-    font-size: 11px; 
+    font-family: Lato-Semibold, Verdana, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.4px;
     color: white;
     text-decoration: none;
 }
@@ -80,17 +91,19 @@ li:first-child {
     color: #f06c64;
 }
 
-/* !!!ИСПРАВИТЬ */
+.header__navigation {
+    margin-bottom: 36px;
+}
+
 .header__bottom {               
     background-color: #323746;
-    height: 6px; 
-    width: 1020px;
-    margin: 0 auto;
-    top: 89px; 
+    position: relative;
+    height: 6px;
+    bottom: 3px; 
 }
 
 .slider .wrapper {  
-    height: 590px;
+    height: 602px;
     background-color: #f06c64;
     display: flex;
     flex-direction: row;
@@ -99,23 +112,25 @@ li:first-child {
 }
 
 .left-arrow,.right-arrow {
-    padding: 40px;
+    padding: 41px;
 }
 .left-arrow:hover,.right-arrow:hover {
-    background-color: white;
+    cursor: pointer;
 }
 
 .iphone-vertical {
-    flex-grow: 0.55;
+    margin-left: -59px;
 }
 
- /* !!!ИСПРАВИТЬ */
+.iphone-gorizontal {
+    margin-right: -60px;
+}
+
 .services__bottom {              
     background-color: #ea676b;
-    width: 1020px;
-    height: 10px;
-    margin: 0 auto;
-    top: 685px;
+    position: relative;
+    height: 6px;
+    bottom: 2px; 
 }
 
 .services .wrapper {
@@ -132,40 +147,44 @@ li:first-child {
 }
 
 .services p {
-    font-family: Lato-Regular, Verdana, sans-serif;
+    font-family: Lato-Light, Verdana, sans-serif;
     font-size: 20px; 
-    padding-top: 17px;
+    padding-top: 16px;
     padding-left: 40px;
-    padding-right: 40px;
+    padding-right: 41px;
     text-align: justify;
-    letter-spacing: -1.2px;
-    line-height: 30px;
+    letter-spacing: -1.05px;
+    line-height: 31px;
     color: #767e9e;
- }
+}
+
+.main-text {
+    margin-bottom: 47px;
+}
 
 .cards .column-3 {
-    padding-top: 45px;
-    padding-left: 40px;
-    padding-right: 40px;
+    margin-bottom: -32px;
+    padding-left: 41px;
     display: flex;
     flex-direction: row;
-   }
+}
 
 .cards .column-3 h3 {    
     font-family: Lato-Regular, Verdana, sans-serif;
-    font-size: 18px;
-    padding-left: 20px;
+    font-size: 19px;
     color: #666d89;
+    padding-left: 20px;
+    margin-top: -5px;
 }
 
 .cards .column-3 p {
-    font-family: Lato-Regular, Verdana, sans-serif;
-    padding-left: 20px;
+    font-family: Lato-Light, Verdana, sans-serif;
+    padding-left: 21px;
     padding-top: 9px;
-    width: 220px;
+    width: 219px;
     height: 128px;
     font-size: 11px;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.4px;
     text-align: justify;
     line-height: 21px;
     color: #767e9e;
@@ -175,12 +194,26 @@ li:first-child {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-bottom: -80px;
+}
+
+.item-left {
+    margin-left: 1px;
 }
 
 .item-center {  
-    margin-left: -20px;
+    margin-left: -21px;
     margin-right: -20px;
+}
+
+.white-bottom {
+    background-color: #ffffff;
+    position: relative;
+    height: 6px;
+    bottom: -28px;
+}
+
+.services {
+    margin-bottom: 8px;
 }
 
 /* part2 */
@@ -220,18 +253,18 @@ li:first-child {
 }
 
 .block-4-button button {
-    font-family: Lato-Regular, Verdana, sans-serif;
+    font-family: Lato-Light, Verdana, sans-serif;
     color: #767e9e;
     font-size: 11.5px;
-    padding-left: 6px;
-    padding-right: 8px;
+    padding-left: 7px;
+    padding-right: 8.5px;
     padding-top: 4px;
     padding-bottom: 3px;
-    letter-spacing: 0.05px;
+    letter-spacing: 0.2px;
     background-color: #2d303a;
     border: 1px solid;
     border-radius: 5px;
-    margin-right: 6px;
+    margin-right: 5px;
 }
 
 .block-4-button button:hover {
@@ -272,7 +305,7 @@ li:first-child {
 
 .about-us .column-3 {
     padding-top: 45px;
-    padding-left: 40px;
+    padding-left: 41px;
     padding-right: 17px;
     display: flex;
     flex-direction: row;
@@ -282,7 +315,7 @@ li:first-child {
 .people .column-3 h3 {
     font-family: Lato-Regular, Verdana, sans-serif;
     font-size: 18px;
-    padding-top: 10px;
+    padding-top: 12px;
     letter-spacing: 0.2px;
     color: #666d89;
     width: 300px;
@@ -296,20 +329,20 @@ li:first-child {
 }
 
 .people .column-3 p {
-    font-family: Lato-Regular, Verdana, sans-serif;
+    font-family: Lato-Light, Verdana, sans-serif;
     font-size: 11px;
     padding-top: 9px;
-    padding-right: 20px;
-    letter-spacing: 0.3px;
+    padding-right: 19px;
+    letter-spacing: 0.4px;
     text-align: justify;
-    line-height: 20px;
+    line-height: 22px;
     color: #767e9e;
 }
 
 .icons-sn {
     display: flex;
     flex-direction: row;
-    padding-top: 25px;
+    padding-top: 24px;
 }
 
 .icons-sn>a>div {
@@ -335,6 +368,14 @@ li:first-child {
     background-repeat: no-repeat;
 }
 
+.about-us .white-bottom {
+    bottom: -67px;
+}
+
+.about-us {
+    margin-bottom: 6px;
+}
+
 /* part3 */
 
 
@@ -358,7 +399,7 @@ li:first-child {
     font-size: 18px;
     font-weight: 300;
     padding-left: 41px;
-    margin-top: 17px;
+    margin-top: 15px;
     padding-right: 41px;
     text-align: justify;
     letter-spacing: -0.34px;
@@ -368,7 +409,7 @@ li:first-child {
 
 .forms-contacts {
     padding-left: 40px;
-    padding-top: 42px;
+    padding-top: 45px;
     padding-right: 40px;
     display: flex;
     flex-direction: row;
@@ -386,7 +427,7 @@ li:first-child {
 }
 
 .textarea {
-    height: 201px;
+    height: 200px;
     resize: none;
 }
 
@@ -425,7 +466,7 @@ li:first-child {
     color: #f0d8d9;
     text-align: justify;
     line-height: 22px;
-    padding-top: 8px;
+    padding-top: 7px;
 }
 
 .contact-info ul {
@@ -435,7 +476,7 @@ li:first-child {
     letter-spacing: 0.3px;
     color: #f0d8d9;
     line-height: 22px;
-    margin-top: 20px;
+    margin-top: 24px;
     margin-left: 20px;
 }
 
@@ -462,7 +503,7 @@ li:first-child {
     position: relative;
     background-color: #ea676b;
     height: 6px;
-    bottom: -6px;
+    bottom: -7px;
 }
 
 .footer .wrapper {
