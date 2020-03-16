@@ -87,8 +87,12 @@ html {
     text-decoration: none;
 }
 
-.navigation a:hover {
+.navigation a.active {
     color: #f06c64;
+}
+
+.navigation a:not(.active):hover {
+    color: white;
 }
 
 .header__navigation {
