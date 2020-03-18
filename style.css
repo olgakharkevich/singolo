@@ -22,6 +22,7 @@
 html {
     font-family: Lato-Regular, Verdana, sans-serif;
     font-size: 10px;
+    scroll-behavior: smooth;
 }
 
 * {
@@ -34,11 +35,15 @@ html {
     margin: 0 auto;    
 }
 
+
 /* part1 */
+
 
 .header .wrapper {
     height: 89px;
     background-color: #2d303a;
+    border-bottom:  #323746 6px solid;
+    position: fixed;
 }
 
 .logo {
@@ -80,66 +85,78 @@ html {
 }
 
 .navigation a {
+    text-decoration: none;
     font-family: Lato-Semibold, Verdana, sans-serif;
     font-size: 11px;
     letter-spacing: 0.4px;
     color: white;
-    text-decoration: none;
 }
 
-.navigation a.active {
+.navigation .active {
     color: #f06c64;
 }
 
-.navigation a:not(.active):hover {
-    color: white;
-}
+.navigation a:hover {
+    color: #f06c64;
+    cursor: pointer;
+} 
 
 .header__navigation {
     margin-bottom: 36px;
 }
 
-.header__bottom {               
-    background-color: #323746;
-    position: relative;
-    height: 6px;
-    bottom: 3px; 
+.slider .wrapper {  
+    height: 594px;
+    /* background-color: #f06c64; */
+    
+    /* flex-direction: row;
+    justify-content: space-between;
+    align-items: center; */
+    border-bottom:  #ea676b 6px solid;
+    margin-top: 95px;
+    display: inline-block;
 }
 
-.slider .wrapper {  
-    height: 602px;
+.slider>.wrapper>div {
+    vertical-align: middle;
+}
+
+#id-slide-1 {
+    height: 594px;
     background-color: #f06c64;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    
+    justify-content: center;
     align-items: center;
 }
 
-.left-arrow,.right-arrow {
-    padding: 41px;
-}
 .left-arrow:hover,.right-arrow:hover {
+    position: absolute;
     cursor: pointer;
 }
 
+.left-arrow {
+    position: absolute;
+    top: 376px;
+    left: 94px;
+}
+
+.right-arrow {
+    position: absolute;
+    top: 376px;
+    right: 91px;
+}
+
+
 .iphone-vertical {
-    margin-left: -59px;
-}
-
-.iphone-horizontal {
-    margin-right: -60px;
-}
-
-.services__bottom {              
-    background-color: #ea676b;
-    position: relative;
-    height: 6px;
-    bottom: 2px; 
+    flex-grow: 0.25;
 }
 
 .services .wrapper {
-    height: 495px;
+    height: 494px;
     background-color: #f2f2f2;
+    border-bottom:  #ffffff 6px solid;
 }
 
 .services h2 {
@@ -153,7 +170,7 @@ html {
 .services p {
     font-family: Lato-Light, Verdana, sans-serif;
     font-size: 20px; 
-    padding-top: 16px;
+    padding-top: 18px;
     padding-left: 40px;
     padding-right: 41px;
     text-align: justify;
@@ -212,23 +229,14 @@ html {
     margin-right: -20px;
 }
 
-.white-bottom {
-    background-color: #ffffff;
-    position: relative;
-    height: 6px;
-    bottom: -28px;
-}
-
-.services {
-    margin-bottom: 8px;
-}
 
 /* part2 */
 
+
 .portfolio .wrapper {
-    height: 870px;
+    height: 864px;
     background-color: #2d303a;
-    position: relative;
+    border-bottom: #323746 4px solid;
 }
 
 .portfolio h2, .about-us h2 {        
@@ -293,16 +301,10 @@ html {
     display: none;
 }
 
-.portfolio__bottom {
-    position: relative;
-    background-color: #323746;
-    height: 6px;
-    bottom: 3px; 
-}
-
 .about-us .wrapper {
-    height: 728px;
+    height: 730px;
     background-color: #f2f2f2;
+    border-bottom: #ffffff 5px solid;
 }
 
 .about-us h2 {        
@@ -349,7 +351,7 @@ html {
 .icons-sn {
     display: flex;
     flex-direction: row;
-    padding-top: 22px;
+    padding-top: 24px;
 }
 
 .icons-sn>a>div {
@@ -375,13 +377,6 @@ html {
     background-repeat: no-repeat;
 }
 
-.about-us .white-bottom {
-    bottom: -67px;
-}
-
-.about-us {
-    margin-bottom: 6px;
-}
 
 /* part3 */
 
@@ -389,6 +384,7 @@ html {
 .get-a-quote .wrapper {
     height: 648px;
     background-color: #f06c64;
+    border-bottom: #ea676b 6px solid;
 }
 
 .get-a-quote h2 {        
@@ -506,15 +502,8 @@ html {
     color: #f0d8d9;
 }
 
-.get-a-quote__bottom {
-    position: relative;
-    background-color: #ea676b;
-    height: 6px;
-    bottom: -7px;
-}
-
 .footer .wrapper {
-    height: 82px;
+    height: 76px;
     background-color: #2d303a;
     display: flex;
     flex-direction: row;
@@ -528,10 +517,9 @@ html {
     letter-spacing: 0.3px;
     color: #656d89;
     padding-left: 42px;
-    padding-top: 4px;
 }
  
 .footer .icons-sn {
     padding-right: 32px;
-    padding-top: 6px;
+    padding-bottom: 24px;
 }

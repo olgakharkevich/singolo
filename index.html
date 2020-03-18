@@ -19,30 +19,31 @@
             <div class="header__navigation">
                 <nav>
                     <ul class="navigation" id="menu">
-                        <li><a class="active" href="#">HOME</a></li>
-                        <li><a href="#">SERVICES</a></li>
-                        <li><a href="#">PORTFOLIO</a></li>
-                        <li><a href="#">ABOUT</a></li>
-                        <li><a href="#">CONTACT</a></li>
+                        <li><a href="#id-home" class="active">HOME</a></li>
+                        <li><a href="#id-services">SERVICES</a></li>
+                        <li><a href="#id-portfolio">PORTFOLIO</a></li>
+                        <li><a href="#id-about">ABOUT</a></li>
+                        <li><a href="#id-contact">CONTACT</a></li>
                     </ul>
                 </nav>
             </div>
-            <div class="header__bottom"></div> 
         </div>
     </header>
 
-    <div class="slider">
+    <section class="slider" id="id-home">
         <div class="wrapper">
-            <div class="left-arrow"><img src="assets/image/left-arrow.png" alt="left-arrow"></div>
-            <div class="iphone-vertical"><img src="assets/image/iphone-with-shadow-vertical.png" alt="iphone-vertical"></div>
-            <div class="iphone-horizontal"><img src="assets/image/iphone-with-shadow-horizontal.png" alt="iphone-horizontal"></div>
-            <div class="right-arrow"><img src="assets/image/right-arrow.png" alt="right-arrow"></div>
+            <div class="slider__control left-arrow"><img src="assets/image/left-arrow.png" alt="left-arrow"></div>
+            <div class="slider__control right-arrow"><img src="assets/image/right-arrow.png" alt="right-arrow"></div>
+            <div class="slider__item" id="id-slide-1">
+                <div class="iphone-vertical"><img src="assets/image/iphone-with-shadow-vertical.png" alt="iphone-vertical"></div>
+                <div class="iphone-horizontal"><img src="assets/image/iphone-with-shadow-horizontal.png" alt="iphone-horizontal"></div>
+            </div>
+            <div class="slider__item" id="id-slide-2"><img src="assets/image/slider-2.png" alt="slide-2"></div>
         </div>
-    </div>
+    </section>
 
-    <section class="services">
+    <section class="services" id="id-services">
         <div class="wrapper">
-            <div class="services__bottom"></div>
             <div class="main-text">
                 <h2> Our Services</h2>
                 <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
@@ -95,13 +96,12 @@
                     </div>                    
                 </div>
             </div>
-            <div class="white-bottom"></div>
         </div>  
     </section>
 
     <!-- part2 -->
 
-    <section class="portfolio"> 
+    <section class="portfolio" id="id-portfolio"> 
         <div class="wrapper">
             <h2>Portfolio</h2>
             <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
@@ -128,11 +128,10 @@
                 <span><img src="assets/image/1.png" alt="1"></span>
                 <span><img src="assets/image/2.png" alt="2"></span>
             </div>
-            <div class="portfolio__bottom"></div>
         </div>
     </section>
 
-    <section class="about-us">
+    <section class="about-us" id="id-about">
         <div class="wrapper">
             <h2>About Us</h2>
             <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
@@ -173,13 +172,12 @@
                     </div>
                 </div>  
             </section>
-            <div class="white-bottom"></div>
         </div>
     </section>
 
     <!-- part3 -->
 
-    <section class="get-a-quote">
+    <section class="get-a-quote" id="id-contact">
         <div class="wrapper">
             <h2>Get a Quote</h2>
             <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
@@ -203,7 +201,6 @@
                     </ul>
                 </div>
             </div>
-            <div class="get-a-quote__bottom"></div>    
         </div>
     </section>
 
