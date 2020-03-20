@@ -48,14 +48,19 @@ let pics = document.querySelectorAll('.column-4-row-3>span')
 buttons.addEventListener('click', (event) => {
     buttons.querySelectorAll('button').forEach(el => el.classList.remove('active-button'));
     event.target.classList.add('active-button');
-    let j, temp;
     for (let i = pics.length - 1; i > 0; i--) {
-        j = Math.floor(Math.random() * (i + 1));
+        let j = Math.floor(Math.random() * (i + 1));
         document.querySelector('.column-4-row-3').insertBefore(pics[j], pics[i]); 
     }
-} )
+} );
 
+// рамка вокруг картинок
 
+let block_pics = document.querySelector('.column-4-row-3');
+block_pics.addEventListener('click', (event) => {
+    pics.forEach(el => el.classList.remove('active-pic'))
+    event.target.closest('span').classList.add('active-pic');
+});
 
 
 // function slide-left() {
@@ -96,4 +101,34 @@ buttons.addEventListener('click', (event) => {
     // } else if (event.target.closest('div').classList.contains('right-arrow')) {
     //     console.log("rrrrrr")
     // } else {console.log("nnnnnn")}
+
+// модальное окно
+
+const BUTTON = document.getElementById('id-submit');
+const CLOSE_BUTTON = document.getElementById('close-message');
+
+BUTTON.addEventListener('click', (event) => {
+    if (document.form_submit.checkValidity()) {
+        event.preventDefault();
+        document.body.style.overflowY = 'hidden';
+        let subject = document.getElementById('id-subject').value.toString();
+        if (subject === '') {subject = 'No subject'} 
+        else {subject = 'Subject: ' + subject};
+        document.getElementById('result-subject').innerText = subject;
+        let describe = document.getElementById('id-describe').value.toString();
+        if (describe === '') {describe = 'No description'} 
+        else {describe = 'Description: ' + describe};
+        document.getElementById('result-describe').innerText = describe;
+        document.getElementById('message-block').classList.remove('hidden');
+    }
+});
+
+
+CLOSE_BUTTON.addEventListener('click', () => {
+    document.body.style.overflowY = 'auto';
+    document.getElementById('result-subject').innerText = '';
+    document.getElementById('result-describe').innerText = '';
+    document.getElementById('message-block').classList.add('hidden');
+    document.form_submit.reset();
+});
 

@@ -132,8 +132,8 @@
             <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
             <section class="people">
                 <div class="column-3">
-                    <div>
-                        <span><img src="assets/image/Adam_Jensen.png" alt="Adam_Jensen"></span>
+                    <div class="people__item">
+                        <div><img src="assets/image/Adam_Jensen.png" alt="Adam_Jensen"></div>
                         <h3>Adam Jensen</h3>
                         <p>Quisque luctus, quam eget molestie commodo, lacus purus cursus purus, nec rutrum tellus dolor id lorem.</p>
                         <div class="icons-sn">
@@ -143,8 +143,8 @@
                             <a href="#"><div class="linkedin"></div></a>
                         </div>
                     </div>
-                    <div>
-                        <span><img src="assets/image/Desmond_Miles.png" alt="Desmond_Miles"></span>
+                    <div class="people__item">
+                        <div><img src="assets/image/Desmond_Miles.png" alt="Desmond_Miles"></div>
                         <h3>Desmond Miles</h3>
                         <p>Curabitur vestibulum eget mauris quis laoreet. Phasellus in quam laoreet, viverra lacus ut, ultrices velit.</p>
                         <div class="icons-sn">
@@ -154,8 +154,8 @@
                             <a href="#"><div class="linkedin"></div></a>
                         </div>
                     </div>
-                    <div>
-                        <span><img src="assets/image/Scolara_Visari.png" alt="Scolara_Visari"></span>
+                    <div class="people__item">
+                        <div><img src="assets/image/Scolara_Visari.png" alt="Scolara_Visari"></div>
                         <h3>Scolara Visari</h3>
                         <p>Nulla sed nunc et tortor luctus faucibus. Morbi at aliquet turpis, et consequat felis. Quisque condimentum.</p>
                         <div class="icons-sn">
@@ -170,29 +170,39 @@
         </div>
     </section>
 
-    <!-- part3 -->
-
     <section class="get-a-quote" id="id-contact">
         <div class="wrapper">
             <h2>Get a Quote</h2>
             <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
             <div class="forms-contacts">
                 <div class="forms">
-                    <form method="POST">
+                    <form name="form_submit" method="POST">
                         <p><input name="p-name" class="p-name" type="text" placeholder="Name (Required)" required></p>
                         <p><input name="email" class="email" type="email" placeholder="Email (Required)" required></p>
-                        <p><input name="decribe" class="decribe" type="text" placeholder="Subject"></p>
-                        <p><textarea name="decribe" class="textarea" placeholder="Describe your project in detail..."></textarea></p>
-                        <input class="submit" name="button-submit" type="submit" value="Submit">
+                        <p><input id="id-subject" name="subject" class="subject" type="text" placeholder="Subject"></p>
+                        <p><textarea id="id-describe" name="describe" class="textarea" maxlength="500" placeholder="Describe your project in detail..."></textarea></p>
+                        <input id="id-submit" class="submit" type="submit" name="SEND" value="SEND">
                     </form>
                 </div>
+
+                <!-- модальное окно -->
+                <div id="message-block" class="hidden">
+                    <div id="message">
+                        <p>The letter was sent</p>
+                        <p><span id="result-subject"></span></p>
+                        <p><span id="result-describe"></span></p>
+                        <br>
+                        <button id="close-message">OK</button>
+                    </div>
+                </div>
+
                 <div class="contact-info">
                     <h3>Contact Information</h3>
                     <p>Quisque hendrerit purus dapibus, ornare nibh vitae, viver&shy;ra nibh. Fusce vitae aliquam tellus. Proin sit amet volutpat libero. Nulla sed nunc et tortor luctus faucibus. Morbi at aliquet turpis, et consequat felis.</p>
                     <ul class="location-phone-mail"> 
                         <li> Elm St. 14/05 Lost City </li>
                         <li><a href="tel:035283318635"> 03528 331 86 35</a></li>
-                        <li><a href="mail:info@singolo.com"> info@singolo.com</a></li>
+                        <li><a href="mailto:info@singolo.com"> info@singolo.com</a></li>
                     </ul>
                 </div>
             </div>
