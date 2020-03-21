@@ -6,7 +6,7 @@ MENU.addEventListener('click', (event) => {
     MENU.querySelectorAll('a').forEach(el => el.classList.remove('active'));
     event.target.classList.add('active');
 });
-
+ 
 // переход по "якорям"
 
 document.addEventListener('scroll', onScroll);
@@ -26,20 +26,75 @@ function onScroll(event) {
             })
         }
     }) 
-};
+}
 
-// слайдер (не работает, ну, работает но не так)
+// слайдер
 
-document.getElementById('id-home').addEventListener('click', function(el) {
-    let parent = document.querySelector('.slider__container');
-    let first = parent.querySelector('.slider__item');
-    let last = parent.querySelector('.slider__item:last-child');
-    if (el.target.closest('div').classList.contains('left-arrow')) {parent.appendChild(first); console.log("1111")};
-    console.log("222");
-    if (el.target.closest('div').classList.contains('right-arrow')) {parent.insertBefore(last, first); console.log("333")};
-    console.log("4444");
-});
+let slider = document.getElementById('id-slider'),
+    sliderItems = document.getElementById('carousel'),
+    prev = document.getElementById('left-arrow'),
+    next = document.getElementById('right-arrow');
 
+function slide(wrapper, items, prev, next) {
+  let posInitial,
+      slides = items.getElementsByClassName('slider__item'),
+      slidesLength = slides.length,
+      slideSize = items.getElementsByClassName('slider__item')[0].offsetWidth,
+      firstSlide = slides[0],
+      lastSlide = slides[slidesLength - 1],
+      cloneFirst = firstSlide.cloneNode(true),
+      cloneLast = lastSlide.cloneNode(true),
+      index = 0,
+      allowShift = true;
+  
+  // Clone first and last slide
+  items.appendChild(cloneFirst);
+  items.insertBefore(cloneLast, firstSlide);
+  wrapper.classList.add('loaded');
+  
+  // Click events
+  prev.addEventListener('click', function () { shiftSlide(-1) });
+  next.addEventListener('click', function () { shiftSlide(1) });
+  
+  // Transition events
+  items.addEventListener('transitionend', checkIndex);
+  
+  function shiftSlide(dir, action) {
+    items.classList.add('shifting');
+    
+    if (allowShift) {
+      if (!action) { posInitial = items.offsetLeft; }
+
+      if (dir == 1) {
+        items.style.left = (posInitial - slideSize) + "px";
+        index++;      
+      } else if (dir == -1) {
+        items.style.left = (posInitial + slideSize) + "px";
+        index--;      
+      }
+    }
+    
+    allowShift = false;
+  }
+    
+  function checkIndex (){
+    items.classList.remove('shifting');
+
+    if (index == -1) {
+      items.style.left = -(slidesLength * slideSize) + "px";
+      index = slidesLength - 1;
+    }
+
+    if (index == slidesLength) {
+      items.style.left = -(1 * slideSize) + "px";
+      index = 0;
+    }
+    
+    allowShift = true;
+  }
+}
+
+slide(slider, sliderItems, prev, next);
 
 // картинки в портфолио 
 
@@ -63,44 +118,6 @@ block_pics.addEventListener('click', (event) => {
 });
 
 
-// function slide-left() {
-
-// }
-
-// function slide-right() {
-
-// } 
-
-
-// let sl = 1; //номер текущего слайда
-// let carousel = document.getElementById('carousel');
-
-// carousel.addEventListener('click', (event) => {
-//     carousel.querySelectorAll('.slider__item').forEach(el => el.classList.remove('active-slide'));
-//     if (sl == 1) { console.log("11111");
-//     if (event.target.closest('div').classList.contains('slider__control')) {
-//         document.getElementById('id-slide-2').classList.add('active-slide');
-//         sl = 2;
-//         console.log("2222")
-//         }} else {
-//             console.log("3333"); 
-//         document.getElementById('id-slide-1').classList.add('active-slide');
-//         sl = 1;
-//      }
-    
-
-
-// });
-
-
- // if (event.target.closest('div').classList.contains('left-arrow')) {
-    //     if (i == 1) {
-    //         document.getElementById('id-slide-2').classList.add('active-slide');
-    //         i = 2;
-    //     }
-    // } else if (event.target.closest('div').classList.contains('right-arrow')) {
-    //     console.log("rrrrrr")
-    // } else {console.log("nnnnnn")}
 
 // модальное окно
 
