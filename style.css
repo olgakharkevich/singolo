@@ -33,7 +33,7 @@ html {
 .wrapper {
     width: 1020px;
     position: relative;
-    /* margin: 0 auto;     */
+    margin: 0 auto;    
 }
 
 /* чтобы header не заслонял начало секций (когда перемещаемся по якорям) */
@@ -44,11 +44,21 @@ html {
     visibility: hidden;
 }
 
+.header {
+    position: relative;
+    margin: 0 auto;
+}
+
+#id-home {
+    padding-top: 95px;
+}
+
 .header .wrapper {
     height: 89px;
     background-color: #2d303a;
     border-bottom:  #323746 6px solid;
     position: fixed;
+    margin-left: calc((100% - 1020px)/2);
     z-index: 10;
 }
 
@@ -128,16 +138,15 @@ html {
     overflow: hidden;
     position: relative;
     width: 1020px;
-    height: 594px;
+    height: 600px;
     z-index: 1;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, .2);
 }
 
 .slider__container {
     display: flex;
 	position: relative;
 	top: 0;
-	left: -50px;
+	left: 0;
 	width: 10000px;
 }
 
@@ -148,14 +157,20 @@ html {
 .slider__item {
     width: 1020px;
     height: 594px;
-	cursor: pointer;
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	justify-content: center;
 	transition: all 1s;
 	position: relative;
-	background: #ffcf47;
-	border-radius: 2px;
+	background: #F06C64;
+}
+
+.iphone-vertical, .iphone-horizontal {
+    position: relative;
+}
+
+#id-slide-1 {
+    align-items: center;
 }
 
 .slider__control {
@@ -164,7 +179,6 @@ html {
 	width: 50px;
 	height: 50px;
 	margin-top: -20px;
-	box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
 	z-index: 2;
 }
 
@@ -174,11 +188,11 @@ html {
 }
 
 #left-arrow {
-    left: -20px;
+    left: 41px;
 }
 
 #right-arrow {
-    right: -20px;
+    right: 7px;
 }
 
 #left-arrow:active, #right-arrow:active {
@@ -187,6 +201,53 @@ html {
 
 .iphone-vertical {
     flex-grow: 0.25;
+}
+
+#iph-vert-button, #iph-horiz-button, #iph-vert-screen, #iph-horiz-screen {
+    position: absolute;
+    z-index: 4;
+}
+
+#iph-vert-button {
+    width: 14%;
+    height: 9%;
+    left: 27%;
+    bottom: 7%;
+    cursor: pointer;
+    /* background-color: red;
+    opacity: 0.5; */
+}
+
+#iph-vert-screen {
+    width: 60.5%;
+    height: 69%;
+    left: 4%;
+    bottom: 17.7%;
+    background-color: black;
+    /* opacity: 0.5; */
+}
+
+#iph-horiz-button {
+    width: 10%;
+    height: 20%;
+    left: 1%;
+    bottom: 45%;
+    cursor: pointer;
+    /* background-color: red;
+    opacity: 0.5; */
+}
+
+#iph-horiz-screen {
+    width: 69%;
+    height: 78%;
+    left: 12.3%;
+    bottom: 16.4%;
+    background-color: black;
+    /* opacity: 0.5; */
+}
+
+.screen-off {
+    display: none;
 }
 
 .services .wrapper {
@@ -468,7 +529,7 @@ html {
     border: 1px solid #d6564f;
     border-radius: 5px;
     background-color: #d6564f;
-    width: 616px;
+    width: 603px;
     height: 36px;
     margin-bottom: 16px;
     margin-right: 22px;

@@ -28,7 +28,7 @@ function onScroll(event) {
     }) 
 }
 
-// слайдер
+// слайдер 
 
 let slider = document.getElementById('id-slider'),
     sliderItems = document.getElementById('carousel'),
@@ -95,6 +95,23 @@ function slide(wrapper, items, prev, next) {
 }
 
 slide(slider, sliderItems, prev, next);
+
+// отключение экранов телефонов
+
+let iph_vert_button = document.getElementById('iph-vert-button');
+let iph_vert_screen = document.getElementById('iph-vert-screen');
+iph_vert_button.addEventListener('click', (event) => {
+  iph_vert_screen.classList.toggle('screen-off');
+});
+
+let iph_horiz_button = document.getElementById('iph-horiz-button');
+let iph_horiz_screen = document.getElementById('iph-horiz-screen');
+iph_horiz_button.addEventListener('click', (event) => {
+  iph_horiz_screen.classList.toggle('screen-off');
+});
+
+// let iph_horiz_button = document.getElementById('iph-horiz-button');
+// iph_horiz_button.addEventListener('click', iph_horiz_button.classList.toggle('screen-off');
 
 // картинки в портфолио 
 
