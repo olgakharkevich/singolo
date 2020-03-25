@@ -28,6 +28,7 @@ html {
 * {
     padding: 0px;
     margin: 0px;
+    box-sizing: border-box;
 }
 
 .wrapper {
@@ -37,11 +38,8 @@ html {
 }
 
 /* чтобы header не заслонял начало секций (когда перемещаемся по якорям) */
-.section {
-    display: block;
-    position: relative;
-    top: -95px;
-    visibility: hidden;
+section {   
+    scroll-margin-top: 95px;
 }
 
 .header {
@@ -54,11 +52,11 @@ html {
 }
 
 .header .wrapper {
-    height: 89px;
+    height: 95px;
     background-color: #2d303a;
     border-bottom:  #323746 6px solid;
     position: fixed;
-    margin-left: calc((100% - 1020px)/2);
+    margin-left: calc((100vw - 1020px)/2);
     z-index: 10;
 }
 
@@ -121,23 +119,15 @@ html {
     margin-bottom: 36px;
 }
 
-
-.slider.wrapper {   
+.slider .wrapper {
     background-color: #f06c64;
-    border-bottom:  #ea676b 6px solid;
-    margin-top: 95px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 1020px;
-    height: 594px;
-}    
+    border-bottom: #ea676b 6px solid;
+    height: 600px;
+}
 
 .slider__wrapper {
     overflow: hidden;
     position: relative;
-    width: 1020px;
     height: 600px;
     z-index: 1;
 }
@@ -146,7 +136,7 @@ html {
     display: flex;
 	position: relative;
 	top: 0;
-	left: 0;
+	left: -1020px;
 	width: 10000px;
 }
 
@@ -214,8 +204,6 @@ html {
     left: 27%;
     bottom: 7%;
     cursor: pointer;
-    /* background-color: red;
-    opacity: 0.5; */
 }
 
 #iph-vert-screen {
@@ -224,7 +212,6 @@ html {
     left: 4%;
     bottom: 17.7%;
     background-color: black;
-    /* opacity: 0.5; */
 }
 
 #iph-horiz-button {
@@ -233,8 +220,6 @@ html {
     left: 1%;
     bottom: 45%;
     cursor: pointer;
-    /* background-color: red;
-    opacity: 0.5; */
 }
 
 #iph-horiz-screen {
@@ -243,7 +228,6 @@ html {
     left: 12.3%;
     bottom: 16.4%;
     background-color: black;
-    /* opacity: 0.5; */
 }
 
 .screen-off {
@@ -251,7 +235,7 @@ html {
 }
 
 .services .wrapper {
-    height: 494px;
+    height: 500px;
     background-color: #f2f2f2;
     border-bottom:  #ffffff 6px solid;
 }
@@ -264,7 +248,7 @@ html {
     padding-left: 40px;
 }
 
-.services p {
+.services .main-text p {
     font-family: Lato-Light, Verdana, sans-serif;
     font-size: 20px; 
     padding-top: 18px;
@@ -277,31 +261,37 @@ html {
 }
 
 .main-text {
-    margin-bottom: 47px;
+    margin-bottom: 36px;
 }
 
-.cards .column-3 {
+.cards .column-3-row-2 {
     margin-bottom: -32px;
-    padding-left: 41px;
-    display: flex;
-    flex-direction: row;
+    padding-left: 40px;
+    padding-right: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 120px);
+    justify-content: space-around;
 }
 
-.cards .column-3 h3 {    
+.column-3-row-2 .column-3-row-2__item {
+    display: flex;
+}
+
+.column-3-row-2__item div {
+    padding: 10px;
+}
+
+.cards .column-3-row-2 h3 {    
     font-family: Lato-Regular, Verdana, sans-serif;
     font-size: 19px;
     color: #666d89;
-    padding-left: 20px;
-    margin-top: -5px;
 }
 
-.cards .column-3 p {
+.cards .column-3-row-2 p {
     font-family: Lato-Light, Verdana, sans-serif;
-    padding-left: 21px;
-    padding-top: 9px;
-    width: 219px;
+    width: 100%;
     height: 80px;
-    margin-bottom: 48px;
     font-size: 11px;
     letter-spacing: 0.4px;
     text-align: justify;
@@ -311,23 +301,8 @@ html {
     text-overflow: ellipsis;
 }
 
-.cards>.column-3>div {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.item-left {
-    margin-left: 1px;
-}
-
-.item-center {  
-    margin-left: -21px;
-    margin-right: -20px;
-}
-
 .portfolio .wrapper {
-    height: 864px;
+    height: 868px;
     background-color: #2d303a;
     border-bottom: #323746 4px solid;
 }
@@ -359,8 +334,6 @@ html {
     padding-left: 41px;
     padding-top: 10px;
     margin-bottom: 8px;
-    /* position: relative; */
-    /* display:  */
 }
 
 .block-4-button button {
@@ -384,7 +357,7 @@ html {
     cursor: pointer;
 }
 
-.block-4-button>.active-button {
+.block-4-button .active-button {
     color: white;
     border-color: white;
 }
@@ -392,7 +365,6 @@ html {
 .column-4-row-3 {
     padding-left: 30px;
     padding-right: 30px;
-    /* padding-top: 8px; */
     padding-bottom: 50px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -406,8 +378,13 @@ html {
     display: none;
 }
 
+.column-4-row-3 .active-pic {
+    border: #F06C64 solid 5px;
+    padding: 5px;
+}
+
 .about-us .wrapper {
-    height: 730px;
+    height: 735px;
     background-color: #f2f2f2;
     border-bottom: #ffffff 5px solid;
 }
@@ -418,17 +395,11 @@ html {
 }
 
 .about-us .column-3 {
-    padding-top: 45px;
-    padding-left: 41px;
-    padding-right: 17px;
+    padding-top: 35px;
+    padding-left: 40px;
+    padding-right: 40px;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.column-4-row-3 .active-pic {
-    border: #F06C64 solid 5px;
-    padding: 5px;
+    justify-content: space-around;
 }
 
 .people .column-3 h3 {
@@ -437,22 +408,21 @@ html {
     padding-top: 12px;
     letter-spacing: 0.2px;
     color: #666d89;
-    width: 300px;
+    width: 100%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis; 
 }
 
-.people>.column-3>:nth-child(2) {
-    padding-right: 10px;
+.people .column-3>div {
+    padding: 10px;
 }
 
 .people .column-3 p {
     font-family: Lato-Light, Verdana, sans-serif;
     font-size: 11px;
     padding-top: 9px;
-    padding-right: 19px;
-    letter-spacing: 0.4px;
+    letter-spacing: 0.2px;
     text-align: justify;
     line-height: 22px;
     color: #767e9e;
@@ -460,14 +430,12 @@ html {
 
 .icons-sn {
     display: flex;
-    flex-direction: row;
     padding-top: 24px;
 }
 
-.icons-sn>a>div {
-    width: 32px;
-    height: 32px;
-    padding-right: 8px;
+.icons-sn>div {
+    padding: 20px;
+    cursor: pointer;
 }
 
 .facebook {
@@ -488,7 +456,7 @@ html {
 }
 
 .get-a-quote .wrapper {
-    height: 648px;
+    height: 654px;
     background-color: #f06c64;
     border-bottom: #ea676b 6px solid;
 }
@@ -529,8 +497,8 @@ html {
     border: 1px solid #d6564f;
     border-radius: 5px;
     background-color: #d6564f;
-    width: 603px;
-    height: 36px;
+    width: 620px;
+    height: 38px;
     margin-bottom: 16px;
     margin-right: 22px;
     font-family: Lato-Regular, Verdana, sans-serif;
@@ -631,7 +599,7 @@ html {
  
 .footer .icons-sn {
     padding-right: 32px;
-    padding-bottom: 24px;
+    padding-bottom: 19px;
 }
 /* модальное окно */
 #message-block {
@@ -661,4 +629,99 @@ html {
     font-size: 20px;
     color: #2d303a;
     padding: 1%;
+}
+
+/* Responsive */
+
+/* tablet 768 */
+@media (max-width : 1019px) {
+
+    .wrapper {
+        width: 100vw;
+    }
+
+    .header .wrapper {
+        margin-left: 0;
+    }
+
+    .slider__wrapper {
+        height: 450px;
+    }
+
+    .slider__item {
+        width: 768px;
+        height: 450px;
+    }
+
+    .slider .wrapper {
+        height: 450px;
+    }
+
+    .slider__container {
+        left: -768px;
+    }
+
+    .services h2 {
+        padding-top: 40px;
+    }
+
+    .main-text {
+        margin-bottom: 24px;
+    }
+    
+    .cards .column-3-row-2 {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 145px);
+        padding-left: 33px;
+        padding-right: 31px;
+    }
+
+    .services .wrapper {
+        height: 675px;
+    }
+    
+    .portfolio p{
+        letter-spacing: 0.1px;
+    }
+
+    .column-3-row-2 .column-3-row-2__item {
+        padding-right: 10%;
+    }
+
+    .portfolio .wrapper {
+        height: 1095px;
+    }
+
+    .block-4-button {
+        margin-bottom: 20px;
+    }
+    
+    .column-4-row-3 {
+        padding-right: 30px;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, 203px);
+    }
+    
+    .column-4-row-3 img {
+        width: 100%;
+    }
+
+    .about-us .wrapper {
+        height: 670px;
+    }
+
+    .people .people__item {
+    width: 90%;
+    height: auto;
+    }
+
+
+}
+
+@media (max-width : 767 px) {
+
+}
+
+@media (max-width : 374 px) {
+
 }

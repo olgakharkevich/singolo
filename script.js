@@ -7,6 +7,7 @@ MENU.addEventListener('click', (event) => {
     event.target.classList.add('active');
 });
  
+
 // переход по "якорям"
 
 document.addEventListener('scroll', onScroll);
@@ -28,7 +29,11 @@ function onScroll(event) {
     }) 
 }
 
+
 // слайдер 
+const NEXT = 'next';
+const PREV = 'prev';
+const LAST_ITEM_INDEX = -1;
 
 let slider = document.getElementById('id-slider'),
     sliderItems = document.getElementById('carousel'),
@@ -53,23 +58,23 @@ function slide(wrapper, items, prev, next) {
   wrapper.classList.add('loaded');
   
   // Click events
-  prev.addEventListener('click', function () { shiftSlide(-1) });
-  next.addEventListener('click', function () { shiftSlide(1) });
+  prev.addEventListener('click', () => { shiftSlide(PREV) });
+  next.addEventListener('click', () => { shiftSlide(NEXT) });
   
   // Transition events
   items.addEventListener('transitionend', checkIndex);
   
-  function shiftSlide(dir, action) {
+  function shiftSlide(direction) {
     items.classList.add('shifting');
     
     if (allowShift) {
-      if (!action) { posInitial = items.offsetLeft; }
+      posInitial = items.offsetLeft;
 
-      if (dir == 1) {
-        items.style.left = (posInitial - slideSize) + "px";
+      if (direction === NEXT) {
+        items.style.left = (posInitial - slideSize) + 'px';
         index++;      
-      } else if (dir == -1) {
-        items.style.left = (posInitial + slideSize) + "px";
+      } else if (direction === PREV) {
+        items.style.left = (posInitial + slideSize) + 'px';
         index--;      
       }
     }
@@ -80,13 +85,13 @@ function slide(wrapper, items, prev, next) {
   function checkIndex (){
     items.classList.remove('shifting');
 
-    if (index == -1) {
-      items.style.left = -(slidesLength * slideSize) + "px";
+    if (index === LAST_ITEM_INDEX) {
+      items.style.left = -(slidesLength * slideSize) + 'px';
       index = slidesLength - 1;
     }
 
-    if (index == slidesLength) {
-      items.style.left = -(1 * slideSize) + "px";
+    if (index === slidesLength) {
+      items.style.left =  -slideSize + 'px';
       index = 0;
     }
     
@@ -95,6 +100,7 @@ function slide(wrapper, items, prev, next) {
 }
 
 slide(slider, sliderItems, prev, next);
+
 
 // отключение экранов телефонов
 
@@ -110,27 +116,30 @@ iph_horiz_button.addEventListener('click', (event) => {
   iph_horiz_screen.classList.toggle('screen-off');
 });
 
-// let iph_horiz_button = document.getElementById('iph-horiz-button');
-// iph_horiz_button.addEventListener('click', iph_horiz_button.classList.toggle('screen-off');
 
 // картинки в портфолио 
 
 let buttons = document.querySelector('.block-4-button');
-let pics = document.querySelectorAll('.column-4-row-3>span')
+let pics = document.querySelectorAll('.column-4-row-3>span');
 buttons.addEventListener('click', (event) => {
-    buttons.querySelectorAll('button').forEach(el => el.classList.remove('active-button'));
-    event.target.classList.add('active-button');
-    for (let i = pics.length - 1; i > 0; i--) {
-        let j = Math.floor(Math.random() * (i + 1));
-        document.querySelector('.column-4-row-3').insertBefore(pics[j], pics[i]); 
-    }
+    buttons.querySelectorAll('button').forEach(el => {
+      if (event.target.getAttribute('type') === 'button') {
+        el.classList.remove('active-button');
+        event.target.classList.add('active-button');
+        for (let i = pics.length - 1; i > 0; i--) {
+          let j = Math.floor(Math.random() * (i + 1));
+          document.querySelector('.column-4-row-3').insertBefore(pics[j], pics[i]); 
+        }
+      }
+    })
 } );
+
 
 // рамка вокруг картинок
 
 let block_pics = document.querySelector('.column-4-row-3');
 block_pics.addEventListener('click', (event) => {
-    pics.forEach(el => el.classList.remove('active-pic'))
+    pics.forEach(el => el.classList.remove('active-pic'));
     event.target.closest('span').classList.add('active-pic');
 });
 
