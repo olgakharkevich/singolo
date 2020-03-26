@@ -56,7 +56,8 @@ section {
     background-color: #2d303a;
     border-bottom:  #323746 6px solid;
     position: fixed;
-    margin-left: calc((100vw - 1020px)/2);
+    left: 0;
+    right: 0;
     z-index: 10;
 }
 
@@ -119,16 +120,13 @@ section {
     margin-bottom: 36px;
 }
 
-.slider .wrapper {
+/* .slider .wrapper {
     background-color: #f06c64;
-    border-bottom: #ea676b 6px solid;
-    height: 600px;
-}
+} */
 
 .slider__wrapper {
     overflow: hidden;
     position: relative;
-    height: 600px;
     z-index: 1;
 }
 
@@ -146,13 +144,11 @@ section {
 
 .slider__item {
     width: 1020px;
-    height: 594px;
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	transition: all 1s;
 	position: relative;
-	background: #F06C64;
 }
 
 .iphone-vertical, .iphone-horizontal {
@@ -161,6 +157,13 @@ section {
 
 #id-slide-1 {
     align-items: center;
+    background-color: #f06c64;
+    border-bottom: #ea676b 6px solid;
+}
+
+#id-slide-2 {
+    background-color: #648BF0;
+    border-bottom: #648BF0 6px solid;
 }
 
 .slider__control {
@@ -173,16 +176,15 @@ section {
 }
 
 #left-arrow, #right-arrow {
-    background-position: center;
     cursor: pointer;
 }
 
 #left-arrow {
-    left: 41px;
+    left: 4%;
 }
 
 #right-arrow {
-    right: 7px;
+    right: 1%;
 }
 
 #left-arrow:active, #right-arrow:active {
@@ -193,17 +195,9 @@ section {
     flex-grow: 0.25;
 }
 
-#iph-vert-button, #iph-horiz-button, #iph-vert-screen, #iph-horiz-screen {
+#iph-vert-screen, #iph-horiz-screen {
     position: absolute;
     z-index: 4;
-}
-
-#iph-vert-button {
-    width: 14%;
-    height: 9%;
-    left: 27%;
-    bottom: 7%;
-    cursor: pointer;
 }
 
 #iph-vert-screen {
@@ -212,14 +206,6 @@ section {
     left: 4%;
     bottom: 17.7%;
     background-color: black;
-}
-
-#iph-horiz-button {
-    width: 10%;
-    height: 20%;
-    left: 1%;
-    bottom: 45%;
-    cursor: pointer;
 }
 
 #iph-horiz-screen {
@@ -235,9 +221,9 @@ section {
 }
 
 .services .wrapper {
-    height: 500px;
     background-color: #f2f2f2;
     border-bottom:  #ffffff 6px solid;
+    padding-bottom: 76px;
 }
 
 .services h2 {
@@ -302,7 +288,6 @@ section {
 }
 
 .portfolio .wrapper {
-    height: 868px;
     background-color: #2d303a;
     border-bottom: #323746 4px solid;
 }
@@ -365,7 +350,7 @@ section {
 .column-4-row-3 {
     padding-left: 30px;
     padding-right: 30px;
-    padding-bottom: 50px;
+    padding-bottom: 60px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(3, 207px);
@@ -384,9 +369,9 @@ section {
 }
 
 .about-us .wrapper {
-    height: 735px;
     background-color: #f2f2f2;
     border-bottom: #ffffff 5px solid;
+    padding-bottom: 50px;
 }
 
 .about-us h2 {        
@@ -401,6 +386,8 @@ section {
     display: flex;
     justify-content: space-around;
 }
+
+
 
 .people .column-3 h3 {
     font-family: Lato-Regular, Verdana, sans-serif;
@@ -430,7 +417,7 @@ section {
 
 .icons-sn {
     display: flex;
-    padding-top: 24px;
+    padding-top: 20px;
 }
 
 .icons-sn>div {
@@ -456,9 +443,9 @@ section {
 }
 
 .get-a-quote .wrapper {
-    height: 654px;
     background-color: #f06c64;
     border-bottom: #ea676b 6px solid;
+    padding-bottom: 10px;
 }
 
 .get-a-quote h2 {        
@@ -475,9 +462,9 @@ section {
     font-family: Lato-Regular, Verdana, sans-serif;
     font-size: 18px;
     font-weight: 300;
-    padding-left: 41px;
+    padding-left: 40px;
     margin-top: 15px;
-    padding-right: 41px;
+    padding-right: 40px;
     text-align: justify;
     letter-spacing: -0.34px;
     line-height: 30px;
@@ -640,25 +627,18 @@ section {
         width: 100vw;
     }
 
-    .header .wrapper {
-        margin-left: 0;
-    }
-
-    .slider__wrapper {
-        height: 450px;
-    }
-
     .slider__item {
-        width: 768px;
-        height: 450px;
+        width: 100vw;
+        max-height: 452px;
     }
 
-    .slider .wrapper {
-        height: 450px;
+    .slider__container img {
+        width: 100%;
     }
+
 
     .slider__container {
-        left: -768px;
+        left: -100vw;
     }
 
     .services h2 {
@@ -676,9 +656,7 @@ section {
         padding-right: 31px;
     }
 
-    .services .wrapper {
-        height: 675px;
-    }
+   
     
     .portfolio p{
         letter-spacing: 0.1px;
@@ -688,34 +666,71 @@ section {
         padding-right: 10%;
     }
 
-    .portfolio .wrapper {
-        height: 1095px;
-    }
-
     .block-4-button {
         margin-bottom: 20px;
     }
     
     .column-4-row-3 {
         padding-right: 30px;
+        padding-bottom: 50px;
         grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(4, 203px);
+        grid-template-rows: repeat(4, 1fr);
     }
     
     .column-4-row-3 img {
         width: 100%;
     }
 
-    .about-us .wrapper {
-        height: 670px;
+    .about-us h2 {
+        padding-top: 52px;
     }
 
-    .people .people__item {
-    width: 90%;
-    height: auto;
+    .about-us .column-3 {
+        padding-top: 27px;
     }
 
+    .people .people__item img {
+        width: calc((100vw - 120px)/3);
+        }
+    
+    .people .column-3 p {
+        padding-top: 0;
+    }
 
+    .people .icons-sn {
+        padding-top: 10px;
+    }
+
+    .get-a-quote .wrapper {
+        padding-bottom: 42px;
+    }
+    
+    .get-a-quote h2 {        
+        padding-top: 55px;
+    }
+
+    .forms-contacts {
+        padding-top: 26px;
+    }
+
+    .p-name, .email, .subject, .textarea, .submit { 
+        width: calc((100vw - 110px)*0.67);
+        margin-bottom: 12px;
+        margin-right: 30px;
+    }
+
+    .textarea {
+        height: 160px;
+        resize: none;
+    }
+
+    .contact-info p {
+        padding-top: 0;
+    }
+    
+    .contact-info ul {
+        margin-top: 10px;
+    }
 }
 
 @media (max-width : 767 px) {
