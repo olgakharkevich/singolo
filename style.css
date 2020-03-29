@@ -37,8 +37,7 @@ html {
     margin: 0 auto;    
 }
 
-/* чтобы header не заслонял начало секций (когда перемещаемся по якорям) */
-section {   
+#id-home, #id-services, #id-portfolio, #id-about, #id-contact {   
     scroll-margin-top: 95px;
 }
 
@@ -46,8 +45,6 @@ section {
     position: relative;
     margin: 0 auto;
 }
-
-
 
 .header .wrapper {
     height: 95px;
@@ -111,8 +108,7 @@ section {
 
 .navigation a:hover {
     color: #f06c64;
-    cursor: pointer;
-} 
+}  
 
 .header__navigation {
     margin-bottom: 36px;
@@ -149,11 +145,7 @@ section {
     width: 100%;
 }
 
-
-
-
 /* для анимации слайдера */
-
 .to-left {
     animation-name: left;
 }
@@ -623,6 +615,7 @@ section {
     padding-right: 32px;
     padding-bottom: 19px;
 }
+
 /* модальное окно */
 #message-block {
     position: fixed;
@@ -651,6 +644,7 @@ section {
     color: #2d303a;
     padding: 2%;
 }
+
 
 /* Responsive */
 
@@ -793,7 +787,7 @@ section {
 /* Mobile 375 */
 @media (max-width : 767px) {
 
-    section {   
+    #id-home, #id-services, #id-portfolio, #id-about, #id-contact {   
         scroll-margin-top: 71px;
     }
 
@@ -867,10 +861,6 @@ section {
         display: none;
     }
     
-    /* .active-nav-mobile {
-        display: block;
-    } */
-
     .logo.active-logo {
         z-index: 5;
         margin-left: 70px;
@@ -926,9 +916,6 @@ section {
         line-height: 29px;
         letter-spacing: -0.035em;
     }
-
-
-
 
     .slider__item {
         height: calc( 220px + (100vw - 375px));

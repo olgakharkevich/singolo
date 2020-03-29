@@ -5,26 +5,18 @@ const MENU = document.getElementById('menu');
 const MENU_MOBILE = document.querySelector('.hamburger');
 const HEADER_NAV = document.querySelector('.header__navigation');
 
-MENU.addEventListener('click', click_menu);
-
-function click_menu(event) {
+MENU.addEventListener('click', () => {
   MENU.querySelectorAll('a').forEach(el => el.classList.remove('active'));
   event.target.classList.add('active');
+  // для Mobile
   if (document.documentElement.clientWidth < 767) {
     HEADER_NAV.classList.add('hidden');
     document.querySelector('.logo').classList.remove('active-logo');
     MENU_MOBILE.classList.remove('rotate');
+    document.body.style.overflowY = 'auto';
   } 
-}
+});
 
-
-// if (document.documentElement.clientWidth < 767) {
-//   HEADER_NAV.addEventListener('blur', () => {
-//     HEADER_NAV.classList.add('hidden');
-//     document.querySelector('.logo').classList.remove('active-logo');
-//     MENU_MOBILE.classList.remove('rotate');
-//   });
-// }
 
 // меню на Mobile-375
 
@@ -40,27 +32,37 @@ MENU_MOBILE.addEventListener('click', () => {
 });
 
 
+// скролл (выделение позиций меню)
 
-// переход по "якорям"
+let isScrolling;
 
-document.addEventListener('scroll', onScroll);
+window.addEventListener('scroll', function() {
 
-function onScroll(event) {
-    const curPos = window.scrollY;
-    const sections = document.querySelectorAll('section');
-    const links = document.querySelectorAll('#menu a');
+	window.clearTimeout( isScrolling );
+  
+	isScrolling = setTimeout(function() {
 
+    let curPos = window.scrollY;
+    let sections = document.querySelectorAll('section');
+    let links = document.querySelectorAll('#menu a');
+    let header_height = document.querySelector('.header .wrapper').offsetHeight;
+    
+    MENU.querySelectorAll('a').forEach(el => el.classList.remove('active'));
+    MENU.querySelectorAll('a').forEach(el => el.classList.remove('hover'));
+    
     sections.forEach((el) => {
-        if (el.offsetTop <= curPos && (el.offsetTop + el.offsetHeight) > curPos) {
-            links.forEach((a) => {
-                a.classList.remove('active');
-                if (el.getAttribute('id') === a.getAttribute('href').substring(1)) {
-                    a.classList.add('active');
-                }
-            })
-        }
-    }) 
-}
+      if ( (el.offsetTop <= (curPos + header_height)) && ((el.offsetTop + el.offsetHeight) > (curPos + header_height)) )  {
+          links.forEach((a) => {
+            if (el.getAttribute('id') === a.getAttribute('href').substring(1)) {
+                  a.classList.add('active');
+              }
+          })
+      }
+    })
+
+	}, 50);
+
+}, false);
 
 
 // отключение экранов телефонов
@@ -78,7 +80,7 @@ iph_horiz.addEventListener('click', (event) => {
 });
 
 
-// слайдер (второй вариант)
+// слайдер 
 
 let items = document.querySelectorAll('.slider__item');
 let currentItem = 0;
@@ -89,10 +91,10 @@ function changeCurrentItem(n) {
 }
 
 function hideItem(direction) {
-	isEnabled = false;
+  isEnabled = false;
 	items[currentItem].classList.add(direction);
 	items[currentItem].addEventListener('animationend', function() {
-		this.classList.remove('active-slide', direction);
+    this.classList.remove('active-slide', direction);
 	});
 }
 
@@ -106,7 +108,7 @@ function showItem(direction) {
 }
 
 function nextItem(n) {
-	hideItem('to-left');
+  hideItem('to-left');
 	changeCurrentItem(n + 1);
 	showItem('from-right');
 }
@@ -119,24 +121,24 @@ function previousItem(n) {
 
 document.getElementById('left-arrow').addEventListener('click', function() {
 	if (isEnabled) {
-		previousItem(currentItem);
+    previousItem(currentItem);
 	}
 });
 
 document.getElementById('right-arrow').addEventListener('click', function() {
-	if (isEnabled) {
+  if (isEnabled) {
 		nextItem(currentItem);
 	}
 });
-
 
 
 // картинки в портфолио 
 
 let buttons = document.querySelector('.block-4-button');
 let pics = document.querySelectorAll('.column-4-row-3>span');
+
 buttons.addEventListener('click', (event) => {
-    buttons.querySelectorAll('button').forEach(el => {
+  buttons.querySelectorAll('button').forEach(el => {
       if (event.target.getAttribute('type') === 'button') {
         el.classList.remove('active-button');
         event.target.classList.add('active-button');
@@ -147,39 +149,42 @@ buttons.addEventListener('click', (event) => {
       }
     })
   } );
+  
 
-
-// рамка вокруг картинок
-
+  // рамка вокруг картинок
+  
 let block_pics = document.querySelector('.column-4-row-3');
+
 block_pics.addEventListener('click', (event) => {
-    pics.forEach(el => el.classList.remove('active-pic'));
+  pics.forEach(el => el.classList.remove('active-pic'));
     event.target.closest('span').classList.add('active-pic');
   });
   
-  
-  
+    
   // модальное окно
   
-  const BUTTON = document.getElementById('id-submit');
-  const CLOSE_BUTTON = document.getElementById('close-message');
-  
-  BUTTON.addEventListener('click', (event) => {
-    if (document.form_submit.checkValidity()) {
-      event.preventDefault();
-      document.body.style.overflowY = 'hidden';
-      let subject = document.getElementById('id-subject').value.toString();
-      if (subject === '') {subject = 'No subject'} 
-      else {subject = 'Subject: ' + subject};
-      document.getElementById('result-subject').innerText = subject;
-      let describe = document.getElementById('id-describe').value.toString();
-      if (describe === '') {describe = 'No description'} 
-      else {describe = 'Description: ' + describe};
-      document.getElementById('result-describe').innerText = describe;
-      document.getElementById('message-block').classList.remove('hidden');
-    }
-  });
+const BUTTON = document.getElementById('id-submit');
+const CLOSE_BUTTON = document.getElementById('close-message');
+
+BUTTON.addEventListener('click', (event) => {
+  if (document.form_submit.checkValidity()) {
+    event.preventDefault();
+    document.body.style.overflowY = 'hidden';
+
+    let subject = document.getElementById('id-subject').value.toString();
+    if (subject === '') {subject = 'No subject'} 
+    else {subject = 'Subject: ' + subject};
+    document.getElementById('result-subject').innerText = subject;
+
+    let describe = document.getElementById('id-describe').value.toString();
+    if (describe === '') {describe = 'No description'} 
+    else {describe = 'Description: ' + describe};
+    document.getElementById('result-describe').innerText = describe;
     
+    document.getElementById('message-block').classList.remove('hidden');
+  }
+});
+  
   CLOSE_BUTTON.addEventListener('click', () => {
     document.body.style.overflowY = 'auto';
     document.getElementById('result-subject').innerText = '';
@@ -188,80 +193,14 @@ block_pics.addEventListener('click', (event) => {
     document.form_submit.reset();
   });
 
+  
+// вместо :hover
 
-  
+// function hover_on(i) {
+//   document.querySelectorAll('.navigation a')[i].classList.add('hover');
+//   }
 
+// function hover_off(i) {
+//   document.querySelectorAll('.navigation a')[i].classList.remove('active', 'hover');
+// }
   
-  
-  // // слайдер (первый вариант)
-  // const NEXT = 'next';
-  // const PREV = 'prev';
-  // const LAST_ITEM_INDEX = -1;
-  
-  // let slider = document.getElementById('id-slider'),
-  //     sliderItems = document.getElementById('carousel'),
-  //     prev = document.getElementById('left-arrow'),
-  //     next = document.getElementById('right-arrow');
-  
-  // function slide(wrapper, items, prev, next) {
-  //   let posInitial,
-  //       slides = items.getElementsByClassName('slider__item'),
-  //       slidesLength = slides.length,
-  //       slideSize = items.getElementsByClassName('slider__item')[0].offsetWidth,
-  //       firstSlide = slides[0],
-  //       lastSlide = slides[slidesLength - 1],
-  //       cloneFirst = firstSlide.cloneNode(true),
-  //       cloneLast = lastSlide.cloneNode(true),
-  //       index = 0,
-  //       allowShift = true;
-    
-  //   console.log("sss", slideSize);
-  //   // клон первого и последнего слайдов
-  //   items.appendChild(cloneFirst);
-  //   items.insertBefore(cloneLast, firstSlide);
-  //   wrapper.classList.add('loaded');
-    
-  //   // события при клике
-  //   prev.addEventListener('click', () => { shiftSlide(PREV) });
-  //   next.addEventListener('click', () => { shiftSlide(NEXT) });
-    
-  //   // перемещение
-  //   items.addEventListener('transitionend', checkIndex);
-    
-  //   function shiftSlide(direction) {
-  //     items.classList.add('shifting');
-      
-  //     if (allowShift) {
-  //       posInitial = items.offsetLeft;
-  
-  //       if (direction === NEXT) {
-  //         items.style.left = (posInitial - slideSize) + 'px';
-  //         index++;      
-  //       } else if (direction === PREV) {
-  //         items.style.left = (posInitial + slideSize) + 'px';
-  //         index--;      
-  //       }
-  //     }
-      
-  //     allowShift = false;
-  //   }
-      
-  //   function checkIndex (){
-  //     items.classList.remove('shifting');
-  
-  //     if (index === LAST_ITEM_INDEX) {
-  //       items.style.left = -(slidesLength * slideSize) + 'px';
-  //       index = slidesLength - 1;
-  //     }
-  
-  //     if (index === slidesLength) {
-  //       items.style.left =  -slideSize + 'px';
-  //       index = 0;
-  //     }
-      
-  //     allowShift = true;
-  //   }
-  // }
-  
-  
-  // slide(slider, sliderItems, prev, next);
