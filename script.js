@@ -1,14 +1,43 @@
+
 // навигация в header по разделам (подсветка)
 
 const MENU = document.getElementById('menu');
+const MENU_MOBILE = document.querySelector('.hamburger');
+const HEADER_NAV = document.querySelector('.header__navigation');
 
 MENU.addEventListener('click', click_menu);
 
 function click_menu(event) {
   MENU.querySelectorAll('a').forEach(el => el.classList.remove('active'));
   event.target.classList.add('active');
+  if (document.documentElement.clientWidth < 767) {
+    HEADER_NAV.classList.add('hidden');
+    document.querySelector('.logo').classList.remove('active-logo');
+    MENU_MOBILE.classList.remove('rotate');
+  } 
 }
 
+
+// if (document.documentElement.clientWidth < 767) {
+//   HEADER_NAV.addEventListener('blur', () => {
+//     HEADER_NAV.classList.add('hidden');
+//     document.querySelector('.logo').classList.remove('active-logo');
+//     MENU_MOBILE.classList.remove('rotate');
+//   });
+// }
+
+// меню на Mobile-375
+
+MENU_MOBILE.addEventListener('click', () => {
+  HEADER_NAV.classList.toggle('hidden');
+  document.querySelector('.logo').classList.toggle('active-logo');
+  MENU_MOBILE.classList.toggle('rotate');
+  if (HEADER_NAV.classList.contains('hidden')) {
+    document.body.style.overflowY = 'auto';
+  } else {
+    document.body.style.overflowY = 'hidden';
+  }
+});
 
 
 
@@ -160,24 +189,7 @@ block_pics.addEventListener('click', (event) => {
   });
 
 
-  // меню на Mobile-375
-
-  const MENU_MOBILE = document.querySelector('.hamburger');
-  const HEADER_NAV = document.querySelector('.header__navigation');
-
-  MENU_MOBILE.addEventListener('click', () => {
-    HEADER_NAV.classList.toggle('hidden');
-    document.querySelector('.logo').classList.toggle('active-logo');
-    MENU_MOBILE.classList.toggle('rotate');
-    if (HEADER_NAV.classList.contains('hidden')) {
-      document.body.style.overflowY = 'auto';
-    } else {
-      document.body.style.overflowY = 'hidden';
-    }
-    
-    // let cons = event.currentTarget;
-    // console.log('event=', cons);
-  })
+  
 
   
   
