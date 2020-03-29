@@ -38,7 +38,7 @@ html {
 }
 
 #id-home, #id-services, #id-portfolio, #id-about, #id-contact {   
-    scroll-margin-top: 95px;
+    scroll-margin-top: 90px;
 }
 
 .header {
@@ -788,7 +788,7 @@ html {
 @media (max-width : 767px) {
 
     #id-home, #id-services, #id-portfolio, #id-about, #id-contact {   
-        scroll-margin-top: 71px;
+        scroll-margin-top: 66px;
     }
 
     #id-home {
