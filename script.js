@@ -2,11 +2,15 @@
 
 const MENU = document.getElementById('menu');
 
-MENU.addEventListener('click', (event) => {
-    MENU.querySelectorAll('a').forEach(el => el.classList.remove('active'));
-    event.target.classList.add('active');
-});
- 
+MENU.addEventListener('click', click_menu);
+
+function click_menu(event) {
+  MENU.querySelectorAll('a').forEach(el => el.classList.remove('active'));
+  event.target.classList.add('active');
+}
+
+
+
 
 // переход по "якорям"
 
@@ -44,7 +48,9 @@ iph_horiz.addEventListener('click', (event) => {
   iph_horiz_screen.classList.toggle('screen-off');
 });
 
+
 // слайдер (второй вариант)
+
 let items = document.querySelectorAll('.slider__item');
 let currentItem = 0;
 let isEnabled = true;
@@ -144,8 +150,7 @@ block_pics.addEventListener('click', (event) => {
       document.getElementById('message-block').classList.remove('hidden');
     }
   });
-  
-  
+    
   CLOSE_BUTTON.addEventListener('click', () => {
     document.body.style.overflowY = 'auto';
     document.getElementById('result-subject').innerText = '';
@@ -153,6 +158,27 @@ block_pics.addEventListener('click', (event) => {
     document.getElementById('message-block').classList.add('hidden');
     document.form_submit.reset();
   });
+
+
+  // меню на Mobile-375
+
+  const MENU_MOBILE = document.querySelector('.hamburger');
+  const HEADER_NAV = document.querySelector('.header__navigation');
+
+  MENU_MOBILE.addEventListener('click', () => {
+    HEADER_NAV.classList.toggle('hidden');
+    document.querySelector('.logo').classList.toggle('active-logo');
+    MENU_MOBILE.classList.toggle('rotate');
+    if (HEADER_NAV.classList.contains('hidden')) {
+      document.body.style.overflowY = 'auto';
+    } else {
+      document.body.style.overflowY = 'hidden';
+    }
+    
+    // let cons = event.currentTarget;
+    // console.log('event=', cons);
+  })
+
   
   
   // // слайдер (первый вариант)
