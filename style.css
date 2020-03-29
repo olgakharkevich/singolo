@@ -223,7 +223,7 @@ html {
 }
 
 
-#iph-vert-screen, #iph-horiz-screen {
+#iph-vert-screen, #iph-horiz-screen, #iph-vert-button, #iph-horiz-button {
     position: absolute;
     z-index: 4;
 }
@@ -242,6 +242,22 @@ html {
     left: 12.3%;
     bottom: 16.4%;
     background-color: black;
+}
+
+#iph-vert-button {
+    width: 14%;
+    height: 9%;
+    left: 27%;
+    bottom: 7%;
+    cursor: pointer;
+}
+
+#iph-horiz-button {
+    width: 10%;
+    height: 20%;
+    left: 1%;
+    bottom: 45%;
+    cursor: pointer;
 }
 
 .screen-off {

@@ -67,15 +67,15 @@ window.addEventListener('scroll', function() {
 
 // отключение экранов телефонов
 
-let iph_vert = document.querySelector('.iphone-vertical');
+let iph_vert_button = document.getElementById('iph-vert-button');
 let iph_vert_screen = document.getElementById('iph-vert-screen');
-iph_vert.addEventListener('click', (event) => {
+iph_vert_button.addEventListener('click', (event) => {
   iph_vert_screen.classList.toggle('screen-off');
 });
 
-let iph_horiz = document.querySelector('.iphone-horizontal');
+let iph_horiz_button = document.getElementById('iph-horiz-button');
 let iph_horiz_screen = document.getElementById('iph-horiz-screen');
-iph_horiz.addEventListener('click', (event) => {
+iph_horiz_button.addEventListener('click', (event) => {
   iph_horiz_screen.classList.toggle('screen-off');
 });
 
@@ -180,7 +180,7 @@ BUTTON.addEventListener('click', (event) => {
     if (describe === '') {describe = 'No description'} 
     else {describe = 'Description: ' + describe};
     document.getElementById('result-describe').innerText = describe;
-    
+
     document.getElementById('message-block').classList.remove('hidden');
   }
 });
